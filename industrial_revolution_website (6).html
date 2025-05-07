@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revoluția Industrială - O transformare globală</title>
+    <style>
+        :root {
+            --primary-color: #3a6ea5;
+            --secondary-color: #ff6b35;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --light-accent: #c0d6df;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2a4d6e);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            padding: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .img-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .quote {
+            background-color: var(--light-accent);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        
+        /* Quiz styles */
+        #quiz-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .quiz-question {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .option input {
+            margin-right: 0.5rem;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2a4d6e;
+        }
+        
+        /* Flashcards styles */
+        .flashcards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .flashcard {
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flashcard-front {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .flashcard-back {
+            background-color: white;
+            color: var(--text-color);
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+        
+        /* Schema styles */
+        .schema {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .schema svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flashcards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flashcard {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quiz functionality
+            const submitQuizBtn = document.getElementById('submit-quiz');
+            const quizResults = document.getElementById('quiz-results');
+            
+            if (submitQuizBtn) {
+                submitQuizBtn.addEventListener('click', function() {
+                    const answers = {
+                        'q1': 'b', // Marea Britanie
+                        'q2': 'a', // Motorul cu abur
+                        'q3': 'c', // După 1870
+                        'q4': 'd', // Electricitatea
+                        'q5': 'a', // Alexandru Ioan Cuza
+                        'q6': 'b', // Oțelul
+                        'q7': 'b', // Revoluția Agrară
+                        'q8': 'c', // 1870
+                        'q9': 'b', // Munca copiilor
+                        'q10': 'a' // Căile ferate
+                    };
+                    
+                    let score = 0;
+                    let results = '<h3>Rezultate:</h3>';
+                    
+                    for (let question in answers) {
+                        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                        
+                        if (selectedOption) {
+                            if (selectedOption.value === answers[question]) {
+                                score++;
+                                results += `<p>Întrebarea ${question.substring(1)}: Corect ✓</p>`;
+                            } else {
+                                results += `<p>Întrebarea ${question.substring(1)}: Incorect ✗</p>`;
+                            }
+                        } else {
+                            results += `<p>Întrebarea ${question.substring(1)}: Niciun răspuns selectat</p>`;
+                        }
+                    }
+                    
+                    results += `<p style="font-weight: bold; margin-top: 1rem;">Ai obținut ${score} din 10 puncte.</p>`;
+                    
+                    quizResults.innerHTML = results;
+                    quizResults.style.display = 'block';
+                });
+            }
+            
+            // Flashcards functionality
+            const flashcards = document.querySelectorAll('.flashcard');
+            
+            flashcards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Revoluția Industrială</h1>
+        <p>O transformare care a schimbat lumea</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#introducere">Introducere</a></li>
+            <li><a href="#premise">Premise și Etape</a></li>
+            <li><a href="#geografie">Geografia Revoluției</a></li>
+            <li><a href="#mosteniri">Moșteniri</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#flashcards">Flashcards</a></li>
+            <li><a href="#schema">Schema</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="introducere">
+            <h2>Introducere</h2>
+            <p>Te-ai întrebat vreodată cum un mic atelier cu unelte de bază a ajuns sa fie înlocuit de fabrici mari cu mașini care sunt capabile să facă mult mai multe într-un timp mult mai scurt? Ei bine, acesta a fost începutul Revoluției industriei moderne. Timpul a fost într-adevăr, nou și plin de mari schimbări care au transformat complet viața oamenilor: cum lucrau, unde trăiau și chiar ce mâncau. Acesta este ceea ce vom examina în acest proiect: ce a dus la revoluție, cum a procedat și ce schimbări a produs în lume, atât bune, cât și rele. Este ca o călătorie înapoi în timp, arătându-ne cum a fost construită această lume modernă - cea în care trăim acum.</p>
+            
+            <div class="img-container">
+                <img src="https://i0.wp.com/materialedeistorie.com/wp-content/uploads/2020/05/Third-Industrial-Revolution-presans-Albert-Meige.jpg?resize=800%2C445&ssl=1" alt="Imagine reprezentativă a Revoluției Industriale">
+                <p class="caption">Evoluția Revoluției Industriale</p>
+            </div>
+            
+            <div class="quote">
+                <p>"Revoluția Industrială a reprezentat o transformare profundă, nu doar a economiei, ci și a societății și a modului în care oamenii interacționau cu mediul înconjurător."</p>
+            </div>
+        </section>
+        
+        <section id="premise">
+            <h2>Premise și Etape</h2>
+            <p>Revoluția industrială a fost precedată de revoluția agrară, care a însemnat modernizarea agriculturii prin folosirea unor noi unelte şi utilaje, a sistemului rotaţiei culturilor şi a semințelor selecționate, precum şi prin organizarea producției pe baza fermelor şi a muncii salariate. Explozia demografică şi exodul rural au fost alte elemente care au dus la revoluția industrială. La acestea s-au adăugat formarea piețelor naționale (în interiorul granițelor unui stat) şi dezvoltarea comertului internațional. Ştiința a luat avânt, iar o serie de inovații şi de invenții tehnice au favorizat dezvoltarea economică.</p>
+            
+            <p>Revoluţia industrială a fost marcată de două faze:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Prima fază</strong> - reprezentată de inventarea motorului cu abur, de exploatarea şi folosirea cărbunelui şi a fierului, precum şi de dezvoltarea industriei textile</li>
+                <li><strong>A doua fază</strong> - declanşată după 1870, s-a concretizat prin apariţia unor noi ramuri industriale, precum şi a unor noi materiale şi surse de energie. Locul fierului a fost luat de oțel, iar electricitatea, petrolul şi gazul metan au devenit resurse importante pentru dezvoltarea economică.</li>
+            </ul>
+            
+            <p>Viața oamenilor a fost transformată de noile invenții, precum becul electric, motorul electric industrial şi cel cu ardere internă, automobilul, avionul. Noile mijloace de comunicare (telegraful electric, telefonul) au transformat felul în care oamenii comunicau.</p>
+            
+            <div class="img-container">
+                <img src="https://www.scientia.ro/images/stories/articles/2015/septembrie/motor-abur-james-watt.jpg" alt="Motor cu abur">
+                <p class="caption">Motor cu abur - una dintre invențiile emblematice ale primei faze a Revoluției Industriale</p>
+            </div>
+        </section>
+        
+        <section id="geografie">
+            <h2>Geografia Revoluției Industriale</h2>
+            <p>Revoluția industrială a început în Marea Britanie, în ultimele decenii ale secolului al XVIII-lea. Acest lucru s-a datorat faptului că în Anglia existau resurse bogate de fier şi cărbune, precum şi forţă de muncă ieftină şi abundentă. În plus, Marea Britanie dispunea de resurse financiare considerabile, de o piaţă internă bine conturată şi de excelente piete în colonii.</p>
+            
+            <p>Marea Britanie s-a menținut ca prima țară industrială a lumii până în 1870. De acolo, revoluția industrială s-a extins, într-o primă fază, în tări precum:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Franţa</li>
+                <li>SUA</li>
+                <li>Unele state germane</li>
+            </ul>
+            
+            <p>În România, revoluția industrială a început în timpul domniei lui Alexandru Ioan Cuza şi a luat avânt după obţinerea independenţei de stat (1878).</p>
+            
+            <div class="img-container">
+                <img src="https://harti.wansait.com/wp-content/uploads/2025/01/revolutia-industriala-harta.jpg" alt="Harta răspândirii Revoluției Industriale">
+                <p class="caption">Harta răspândirii Revoluției Industriale în Europa</p>
+            </div>
+        </section>
+        
+        <section id="mosteniri">
+            <h2>Moșteniri ale Revoluției Industriale</h2>
+            <p>Revoluția industrială a adus cu sine schimbări semnificative în viaţa cotidiană şi în ocupațiile oamenilor. În egală măsură, a schimbat relația dintre om şi natură. Exploatarea resurselor minerale (în primul rând, a fierului şi a cărbunelui) şi reorganizarea activităților în producția de fabrică au dus la apariția unor noi materiale şi a unor noi tipuri de construcţii. Şi în prezent, o parte dintre acestea se află în orasele din Europa, constituind o parte a mostenirii istorice universale.</p>
+            
+            <p>Primele fabrici, bazate pe energia apei, au fost nucleul în jurul căruia s-au organizat fabrici tot mai mari, în care se aflau maşinile şi depozitele. Locuințele muncitorilor erau situate în apropierea fabricilor. Fabrica a devenit, astfel, un oraş în sine.</p>
+            
+            <p>În pofida mecanizării, munca era foarte grea, iar o zi de muncă depăşea adesea 10 ore. Munca prestată de copii era utilizată în spațiile mici sau atunci când era nevoie de mâini delicate (spre exemplu, pentru producerea de materiale textile sau de chibrituri).</p>
+            
+            <p>Odată cu apariția motoarelor cu abur şi, mai târziu, a motoarelor electrice, la periferia marilor oraşe au început să fie construite fabrici. Muncitorii locuiau adesea în case insalubre, aflate în apropierea fabricilor.</p>
+            
+            <p>Principala schimbare, însă, a fost legată de nevoia de aprovizionare cu materii prime şi cărbune. Pe lângă acestea, oraşul a devenit, de asemenea, tot mai dependent de resursele alimentare puse la dispoziție de o agricultură tot mai performantă şi mai mecanizată, precum şi de un sistem modern de transport, bazat pe căile ferate şi pe construcții din metal (în primul rând poduri).</p>
+            
+            <div class="img-container">
+                <img src="https://infohale.ro/wp-content/uploads/2014/06/16.jpg" alt="Oraș industrial">
+                <p class="caption">Imagine a unui oraș industrial din secolul al XIX-lea</p>
+            </div>
+        </section>
+        
+        <section id="quiz">
+            <h2>Quiz - Testează-ți cunoștințele</h2>
+            <div id="quiz-container">
+                <div class="quiz-question" id="q1">
+                    <div class="question-text">1. Unde a început Revoluția Industrială?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a"> a) Franța
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b"> b) Marea Britanie
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c"> c) Germania
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d"> d) Statele Unite
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q2">
+                    <div class="question-text">2. Care a fost una dintre invențiile emblematice ale primei faze a Revoluției Industriale?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a"> a) Motorul cu abur
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b"> b) Becul electric
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c"> c) Automobilul
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d"> d) Telefonul
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q3">
+                    <div class="question-text">3. În ce perioadă a început a doua fază a Revoluției Industriale?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a"> a) După 1750
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b"> b) După 1800
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c"> c) După 1870
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d"> d) După 1900
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q4">
+                    <div class="question-text">4. Care dintre următoarele resurse NU era importantă în prima fază a Revoluției Industriale?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a"> a) Cărbunele
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b"> b) Fierul
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c"> c) Apa
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="d"> d) Electricitatea
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q5">
+                    <div class="question-text">5. În timpul domniei cărui domnitor a început Revoluția Industrială în România?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a"> a) Alexandru Ioan Cuza
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b"> b) Carol I
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c"> c) Mihail Kogălniceanu
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="d"> d) Ferdinand I
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q6">
+                    <div class="question-text">6. Ce a înlocuit fierul în a doua fază a Revoluției Industriale?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="a"> a) Aluminiul
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="b"> b) Oțelul
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="c"> c) Cuprul
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="d"> d) Bronzul
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q7">
+                    <div class="question-text">7. Ce revoluție a precedat Revoluția Industrială?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="a"> a) Revoluția Franceză
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="b"> b) Revoluția Agrară
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="c"> c) Revoluția Științifică
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="d"> d) Revoluția Comercială
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q8">
+                    <div class="question-text">8. Până în ce an s-a menținut Marea Britanie ca prima țară industrială a lumii?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q8" value="a"> a) 1850
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="b"> b) 1860
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="c"> c) 1870
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="d"> d) 1880
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q9">
+                    <div class="question-text">9. Ce tip de muncă era adesea folosită în spațiile mici sau pentru sarcini care necesitau mâini delicate?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="a"> a) Munca femeilor
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="b"> b) Munca copiilor
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="c"> c) Munca bătrânilor
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="d"> d) Munca imigranților
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" id="q10">
+                    <div class="question-text">10. Ce sistem modern de transport a devenit esențial pentru dezvoltarea orașelor industriale?</div>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="a"> a) Căile ferate
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="b"> b) Șoselele
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="c"> c) Canalele
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="d"> d) Rutele maritime
+                        </label>
+                    </div>
+                </div>
+                
+                <button id="submit-quiz">Verifică răspunsurile</button>
+                <div id="quiz-results" style="margin-top: 1.5rem; display: none;"></div>
+            </div>
+        </section>
+        
+        <section id="flashcards">
+            <h2>Flashcards</h2>
+            <p>Apasă pe carduri pentru a le întoarce și a vedea informațiile.</p>
+            
+            <div class="flashcards-container">
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>Prima fază a Revoluției Industriale</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Caracterizată de inventarea motorului cu abur, exploatarea cărbunelui și a fierului, și dezvoltarea industriei textile.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>A doua fază a Revoluției Industriale</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>Declanșată după 1870, a adus noi ramuri industriale, noi materiale (oțelul în locul fierului) și noi surse de energie (electricitate, petrol, gaz metan).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>Începutul Revoluției Industriale</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>A început în Marea Britanie, în ultimele decenii ale secolului al XVIII-lea, datorită resurselor bogate de fier și cărbune și forței de muncă ieftine și abundente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>Revoluția Industrială în România</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>A început în timpul domniei lui Alexandru Ioan Cuza și a luat avânt după obținerea independenței de stat (1878).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>Premisele Revoluției Industriale</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>- Revoluția agrară<br>- Explozia demografică<br>- Exodul rural<br>- Formarea piețelor naționale<br>- Dezvoltarea comerțului internațional<br>- Avansul științei</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <p>Invenții importante</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p>- Motorul cu abur<br>- Becul electric<br>- Motorul electric industrial<br>- Motorul cu ardere internă<br>- Automobilul<br>- Avionul<br>- Telegraful electric<br>- Telefonul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="schema">
+            <h2>Schema Revoluției Industriale</h2>
+            <div class="schema">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Main title -->
+                    <rect x="300" y="50" width="200" height="60" rx="10" fill="#3a6ea5" />
+                    <text x="400" y="85" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Revoluția Industrială</text>
+                    
+                    <!-- Left branch - Causes -->
+                    <line x1="300" y1="80" x2="150" y2="150" stroke="#333" stroke-width="2" />
+                    <rect x="50" y="150" width="200" height="50" rx="10" fill="#ff6b35" />
+                    <text x="150" y="180" text-anchor="middle" fill="white" font-size="16">Cauze</text>
+                    
+                    <!-- Causes details -->
+                    <line x1="150" y1="200" x2="150" y2="230" stroke="#333" stroke-width="2" />
+                    <rect x="75" y="230" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="150" y="255" text-anchor="middle" fill="#333" font-size="12">Revoluția agrară</text>
+                    
+                    <line x1="150" y1="270" x2="150" y2="290" stroke="#333" stroke-width="2" />
+                    <rect x="75" y="290" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="150" y="315" text-anchor="middle" fill="#333" font-size="12">Explozia demografică</text>
+                    
+                    <line x1="150" y1="330" x2="150" y2="350" stroke="#333" stroke-width="2" />
+                    <rect x="75" y="350" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="150" y="375" text-anchor="middle" fill="#333" font-size="12">Dezvoltarea științei</text>
+                    
+                    <!-- Right branch - Phases -->
+                    <line x1="500" y1="80" x2="650" y2="150" stroke="#333" stroke-width="2" />
+                    <rect x="550" y="150" width="200" height="50" rx="10" fill="#ff6b35" />
+                    <text x="650" y="180" text-anchor="middle" fill="white" font-size="16">Etape</text>
+                    
+                    <!-- Phases details -->
+                    <line x1="650" y1="200" x2="650" y2="230" stroke="#333" stroke-width="2" />
+                    <rect x="575" y="230" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="650" y="255" text-anchor="middle" fill="#333" font-size="12">Prima fază (Motor cu abur)</text>
+                    
+                    <line x1="650" y1="270" x2="650" y2="290" stroke="#333" stroke-width="2" />
+                    <rect x="575" y="290" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="650" y="315" text-anchor="middle" fill="#333" font-size="12">A doua fază (după 1870)</text>
+                    
+                    <!-- Middle branch - Countries -->
+                    <line x1="400" y1="110" x2="400" y2="150" stroke="#333" stroke-width="2" />
+                    <rect x="300" y="150" width="200" height="50" rx="10" fill="#ff6b35" />
+                    <text x="400" y="180" text-anchor="middle" fill="white" font-size="16">Răspândire</text>
+                    
+                    <!-- Countries details -->
+                    <line x1="400" y1="200" x2="400" y2="230" stroke="#333" stroke-width="2" />
+                    <rect x="325" y="230" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="400" y="255" text-anchor="middle" fill="#333" font-size="12">Marea Britanie</text>
+                    
+                    <line x1="400" y1="270" x2="400" y2="290" stroke="#333" stroke-width="2" />
+                    <rect x="325" y="290" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="400" y="315" text-anchor="middle" fill="#333" font-size="12">Franța, SUA, Germania</text>
+                    
+                    <line x1="400" y1="330" x2="400" y2="350" stroke="#333" stroke-width="2" />
+                    <rect x="325" y="350" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="400" y="375" text-anchor="middle" fill="#333" font-size="12">România (A.I. Cuza)</text>
+                    
+                    <!-- Bottom branch - Effects -->
+                    <line x1="400" y1="110" x2="400" y2="420" stroke="#333" stroke-width="2" />
+                    <rect x="300" y="420" width="200" height="50" rx="10" fill="#ff6b35" />
+                    <text x="400" y="450" text-anchor="middle" fill="white" font-size="16">Efecte/Moșteniri</text>
+                    
+                    <!-- Effects details -->
+                    <line x1="300" y1="445" x2="200" y2="480" stroke="#333" stroke-width="2" />
+                    <rect x="125" y="480" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="200" y="505" text-anchor="middle" fill="#333" font-size="12">Schimbări în viața cotidiană</text>
+                    
+                    <line x1="400" y1="470" x2="400" y2="480" stroke="#333" stroke-width="2" />
+                    <rect x="325" y="480" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="400" y="505" text-anchor="middle" fill="#333" font-size="12">Noi tipuri de construcții</text>
+                    
+                    <line x1="500" y1="445" x2="600" y2="480" stroke="#333" stroke-width="2" />
+                    <rect x="525" y="480" width="150" height="40" rx="5" fill="#f5f5f5" stroke="#333" />
+                    <text x="600" y="505" text-anchor="middle" fill="#333" font-size="12">Urbanizare</text>
